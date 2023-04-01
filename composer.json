@@ -1,0 +1,46 @@
+{
+    "name": "lab/citwig",
+    "description": "LABCore, LAB",
+    "version": "1.0.0",
+    "require": {
+        "php": ">=7.4",
+        "twig/twig": "3.4.2",
+        "twig/intl-extra": "3.4.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5"
+    },
+    "non-require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "LABCore\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LABCoreTest\\": "tests/"
+        }
+    },
+    "scripts": {
+        "localBuild": [
+            "rm composer.lock || true",
+            "composer clear-cache",
+            "composer install --no-dev"
+        ],
+        "localBuildProd": [
+            "rm composer.lock || true",
+            "composer clear-cache",
+            "composer install --no-dev"
+        ],
+        "dump": "composer dump-autoload",
+        "test": "phpunit --testdox",
+        "serveTemplateEngine": "php -S localhost:8000 -t ./demo/TemplateEngine/"
+    },
+    "config": {
+        "process-timeout": 0,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
